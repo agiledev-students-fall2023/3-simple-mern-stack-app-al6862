@@ -22,6 +22,23 @@ mongoose
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
 
+// a route to fetch all about me info
+app.get('/about', (req, res) => {
+  try {
+    res.json({
+      text: 
+      'Hi, this is Amber. I like swimming around with my dolphin friends, but I also like web apps! My favorite food is shrimp, and my favorite documentary is Blackfish. \n I love learning about the MERN stack, which stands for MongoDB, Express, React, and Node. What is your favorite web dev stack? \n I also need a job. IF ANYONE IS HIRING DOLPHINS PLEASE LET ME KNOW!!!!',
+      imglink: 'https://i.pinimg.com/originals/21/44/6b/21446b0407d5ad298eb79d51f726b133.jpg',
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(400).json({
+      error: err,
+      status: 'failed to retrieve about me',
+    })
+  }
+})
+
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
   // load all messages from database
