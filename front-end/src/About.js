@@ -25,7 +25,6 @@ const About = props => {
       })
 
     const pArr = text.split('\n').map((val) => {
-        console.log(val)
         return (
             <>
                 <p>{val}</p>
@@ -36,7 +35,7 @@ const About = props => {
 
     return (
     <>
-        <>{pArr}</>
+        {pArr}
         <img src={imglink} alt="dolphins swimmming" width="200px" />
     </>
     )
